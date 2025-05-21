@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "Sora Video Downloader",
+  "version": "1.0",
+  "description": "Download videos from Sora and similar websites",
+  "permissions": ["contextMenus", "downloads", "storage", "activeTab", "scripting"],
+  "host_permissions": ["*://*.openai.com/*", "*://*.oaistatic.com/*","*://*.chatgpt.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.openai.com/*", "*://*.oaistatic.com/*", "*://*.chatgpt.com/*", "*://sora.com/*"],
+      "js": ["overlay-handler.js", "content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    },
+    "default_popup": "popup.html",
+    "default_title": "Sora Video Downloader"
+  },
+  "commands": {
+    "download-video": {
+      "suggested_key": {
+        "default": "Alt+D"
+      },
+      "description": "Download the visible video"
+    },
+    "force-detect-videos": {
+      "suggested_key": {
+        "default": "Alt+Shift+D"
+      },
+      "description": "Force detect and download videos"
+    }
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  }
+}

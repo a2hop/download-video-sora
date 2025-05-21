@@ -1,0 +1,145 @@
+/* Styles for Sora Video Downloader */
+
+#sora-downloader-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 16px;
+  border-radius: 4px;
+  z-index: 10000;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  max-width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: opacity 0.3s ease;
+  line-height: 1.4;
+}
+
+#sora-downloader-notification.info {
+  background-color: #4CAF50;
+  color: white;
+}
+
+#sora-downloader-notification.error {
+  background-color: #f44336;
+  color: white;
+}
+
+#sora-downloader-notification .close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 10px;
+  padding: 0 4px;
+}
+
+/* Video overlay indicator to help identify downloadable videos */
+.sora-video-indicator {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(33, 150, 243, 0.85);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 99999; /* Increased z-index to overcome site overlays */
+  pointer-events: auto; /* Changed to auto to allow clicks */
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+/* Adding hover effects to help identify video containers */
+[data-index]:hover,
+.group:hover,
+.video-container:hover {
+  outline: 2px solid rgba(33, 150, 243, 0.5) !important;
+}
+
+/* Hover effect to show download indicators */
+[data-index]:hover .sora-video-indicator,
+.group:hover .sora-video-indicator,
+.video-container:hover .sora-video-indicator,
+*:hover > .sora-video-indicator,
+.sora-video-container:hover .sora-video-indicator {
+  opacity: 1;
+}
+
+/* Added special class for our containers */
+.sora-video-container {
+  position: relative !important;
+}
+
+/* Make sure our download button appears above all other elements */
+.sora-download-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(33, 150, 243, 0.9);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 2147483647; /* Maximum z-index value */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.sora-download-button.disabled {
+  background-color: rgba(158, 158, 158, 0.7);
+  cursor: not-allowed;
+}
+
+.sora-download-button.disabled:hover {
+  background-color: rgba(158, 158, 158, 0.7);
+  transform: none;
+}
+
+.sora-video-container:hover .sora-download-button {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sora-download-button:hover {
+  background-color: rgba(25, 118, 210, 0.95);
+  transform: scale(1.05);
+}
+
+/* Debug mode styles */
+.sora-debug-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid #4CAF50;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+.sora-debug-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(76, 175, 80, 0.8);
+  color: white;
+  font-size: 10px;
+  padding: 2px 5px;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.sora-has-video {
+  position: relative;
+}

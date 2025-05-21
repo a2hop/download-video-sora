@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sora Video Downloader</title>
+  <style>
+    body {
+      width: 320px;
+      font-family: Arial, sans-serif;
+      padding: 16px;
+      color: #333;
+      margin: 0;
+    }
+    h2 {
+      font-size: 18px;
+      margin-top: 0;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .instructions {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #555;
+    }
+    .highlight {
+      background-color: #f3f3f3;
+      padding: 12px;
+      border-radius: 4px;
+      border-left: 3px solid #2196F3;
+      margin: 12px 0;
+    }
+    .footer {
+      margin-top: 16px;
+      font-size: 12px;
+      color: #888;
+      text-align: center;
+      padding-top: 12px;
+      border-top: 1px solid #eee;
+    }
+    .btn {
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 12px;
+      transition: background-color 0.2s;
+    }
+    .btn:hover {
+      background-color: #0b7dda;
+    }
+    .btn:active {
+      background-color: #0a6bbd;
+    }
+    .btn.secondary {
+      background-color: #757575;
+    }
+    .btn.secondary:hover {
+      background-color: #616161;
+    }
+    .btn.secondary:active {
+      background-color: #424242;
+    }
+    .status {
+      font-size: 14px;
+      margin-top: 12px;
+      padding: 8px;
+      border-radius: 4px;
+      text-align: center;
+      display: none;
+    }
+    .status.success {
+      background-color: #e8f5e9;
+      color: #2e7d32;
+      display: block;
+    }
+    .status.error {
+      background-color: #ffebee;
+      color: #c62828;
+      display: block;
+    }
+    .keyboard-shortcut {
+      display: inline-block;
+      padding: 2px 6px;
+      background-color: #eee;
+      border-radius: 3px;
+      font-family: monospace;
+      font-weight: bold;
+      margin: 0 2px;
+    }
+    .button-group {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .button-group .btn {
+      margin-top: 0;
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <h2>
+    <img src="images/icon48.png" width="24" height="24" alt="Logo">
+    Sora Video Downloader
+  </h2>
+  <div class="instructions">
+    <p>There are multiple ways to download videos from Sora:</p>
+    <div class="highlight">
+      1. Right-click directly on a video and select <strong>"Download Sora Video"</strong><br><br>
+      2. Right-click anywhere on the page and select <strong>"Download Sora Video (from this element)"</strong><br><br>
+      3. Use keyboard shortcut <span class="keyboard-shortcut">Alt</span>+<span class="keyboard-shortcut">D</span><br><br>
+      4. Use the buttons below:
+    </div>
+    
+    <div class="button-group">
+      <button id="downloadBtn" class="btn">Download Current Video</button>
+      <button id="downloadAllBtn" class="btn secondary">Download All</button>
+    </div>
+    
+    <div id="status" class="status"></div>
+    
+    <div class="highlight" style="margin-top: 16px; font-size: 12px;">
+      <strong>Tip:</strong> If the wrong video downloads, try hovering your mouse over the desired video first, then use Alt+D or right-click on it.
+    </div>
+  </div>
+  <div class="footer">
+    Sora Video Downloader v1.0
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
